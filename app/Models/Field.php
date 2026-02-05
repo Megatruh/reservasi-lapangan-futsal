@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Str;
 
 class Field extends Model
 {
@@ -17,7 +18,7 @@ class Field extends Model
         parent::boot();
 
         static::creating(function ($field) {
-            $field->slug = \Str::slug($field->name);
+            $field->slug = Str::slug($field->name);
         });
     }
 }
